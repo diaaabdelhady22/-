@@ -1,0 +1,125 @@
+<html>
+    <body style="background-color: #242424;">
+        <link rel="stylesheet" href="style.css">
+      <center> <div class="box1" align="center">
+         <img src="book.png" width="150px"><hr><h1>-متحيرش نفسك في ابطال قصتك-</h1 align="center">
+        </div>
+         <br><br><br><br><br><br><br><br> 
+        <h1 align="center" id="ff">اختار نوع الاسم</h1>
+         <select id="category" align="center">
+    <option></option>
+    <option value="arabicBoys">أسماء أولاد عربية</option>
+    <option value="arabicGirls">أسماء بنات عربية</option>
+  </select>
+
+  <br><br><br><br>
+  <button onclick="generateName()">ولّد اسم</button>
+<br><br><br>
+ <div class="ff"><div class="name-box" id="nameDisplay">...</div>
+  <div class="meaning-box" id="meaningDisplay"></div></div>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><h1>made by diaaabdelhady™</h1>
+
+  <script>
+    const names = {
+      arabicBoys: [
+        { name: "أحمد", meaning: "كثير الحمد" },
+        { name: "محمد", meaning: "المحمود الخصال" },
+        { name: "علي", meaning: "المرتفع أو العالي" },
+        { name: "حسن", meaning: "الجميل أو الطيب" },
+        { name: "حسين", meaning: "تصغير حسن" },
+        { name: "عمر", meaning: "الحياة الطويلة" },
+        { name: "أنس", meaning: "الألفة والونس" },
+        { name: "سليم", meaning: "الناجي من الأذى" },
+        { name: "بلال", meaning: "الندى أو البلل" },
+        { name: "ياسر", meaning: "السهل أو الغني" },
+        { name: "كرم", meaning: "السخاء والعطاء" },
+        { name: "ليث", meaning: "الأسد" },
+        { name: "فارس", meaning: "المحارب" },
+        { name: "زيد", meaning: "الزيادة والنمو" },
+        { name: "مازن", meaning: "السحاب الممطر" },
+        { name: "سهيل", meaning: "نجم مضيء" },
+        { name: "أوس", meaning: "الذئب أو العطية" },
+        { name: "تيم", meaning: "العبد أو العاشق" },
+        { name: "رائد", meaning: "من يتقدم قومه" },
+        { name: "إياد", meaning: "القوة والثبات" },
+        { name: "جواد", meaning: "الكرم" },
+        { name: "هيثم", meaning: "فرخ النسر" },
+        { name: "سيف", meaning: "السلاح الحاد" },
+        { name: "طه", meaning: "اسم من أسماء النبي" },
+        { name: "وسيم", meaning: "جميل الوجه" },
+        { name: "أمير", meaning: "القائد أو الحاكم" },
+        { name: "نبراس", meaning: "المصباح أو الشخص الشجاع" },
+        { name: "راشد", meaning: "العاقل والمهتدي" },
+        { name: "باسل", meaning: "الشجاع المقدام" },
+        { name: "نائل", meaning: "من ينال العطاء" },
+        { name: "مالك", meaning: "المالك أو الحاكم" },
+        { name: "خالد", meaning: "الذي لا يموت (رمز للبقاء)" },
+        { name: "رامي", meaning: "الرامي بالسهم" },
+        { name: "زياد", meaning: "الزيادة والنمو" },
+        { name: "طلال", meaning: "الجمال والحسن" },
+        { name: "قيس", meaning: "الشدة أو القوة" },
+        { name: "أدهم", meaning: "الأسود" },
+        { name: "أيهم", meaning: "الشجاع" },
+        { name: "تميم", meaning: "الشديد الكامل" }
+      ],
+
+      arabicGirls: [
+        { name: "ليان", meaning: "النعومة والراحة" },
+        { name: "سارة", meaning: "أميرة أو نبيلة" },
+        { name: "آية", meaning: "علامة أو معجزة" },
+        { name: "جنى", meaning: "ثمر أو حصاد" },
+        { name: "شهد", meaning: "عسل نقي" },
+        { name: "مريم", meaning: "المرأة الطاهرة العابدة" },
+        { name: "ريم", meaning: "غزال ناصع البياض" },
+        { name: "نورة", meaning: "الضوء" },
+        { name: "لجين", meaning: "الفضة" },
+        { name: "هبة", meaning: "هدية من الله" },
+        { name: "فرح", meaning: "السرور والبهجة" },
+        { name: "نور", meaning: "الإشراق" },
+        { name: "سلمى", meaning: "الناجية أو السليمة" },
+        { name: "نسرين", meaning: "زهرة عطرية" },
+        { name: "تاليا", meaning: "نور الجنة" },
+        { name: "رغد", meaning: "العيش المريح" },
+        { name: "بتول", meaning: "العفيفة الطاهرة" },
+        { name: "يارا", meaning: "الطاهرة والمحبوبة" },
+        { name: "رُبى", meaning: "أرض مرتفعة" },
+        { name: "بيان", meaning: "وضوح وفصاحة" },
+        { name: "رزان", meaning: "الوقار" },
+        { name: "حنين", meaning: "الشوق" },
+        { name: "تالين", meaning: "جميلة الوجه" },
+        { name: "جود", meaning: "الكرم والعطاء" },
+        { name: "سندس", meaning: "ثياب أهل الجنة" },
+        { name: "جُمان", meaning: "اللؤلؤة الصغيرة" },
+        { name: "غيداء", meaning: "الناعمة المتمايلة" },
+        { name: "بسمة", meaning: "الابتسامة" },
+        { name: "دعاء", meaning: "الرجاء لله" },
+        { name: "يسرى", meaning: "السهولة واليسر" },
+        { name: "جميلة", meaning: "الحسناء" },
+        { name: "سجى", meaning: "الهدوء والسكينة" },
+        { name: "رند", meaning: "شجرة طيبة الرائحة" },
+        { name: "مي", meaning: "أنثى القرد أو الخادمة" },
+        { name: "رؤى", meaning: "الرؤية في المنام" },
+        { name: "سحر", meaning: "آخر الليل" },
+        { name: "أمل", meaning: "الرجاء والتفاؤل" },
+        { name: "دنيا", meaning: "الحياة" }
+      ]
+    };
+
+    function generateName() {
+      const category = document.getElementById("category").value;
+      const selectedList = names[category];
+      const randomIndex = Math.floor(Math.random() * selectedList.length);
+      const selectedName = selectedList[randomIndex];
+
+      document.getElementById("nameDisplay").textContent = selectedName.name;
+      document.getElementById("meaningDisplay").textContent = selectedName.meaning;
+    }
+  </script>
+
+    
+  
+</body>
+</html></center>
+        
+    </body>
+</html>
